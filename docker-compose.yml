@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  nextjs:
+    build: .
+    container_name: nextjs_dev
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    command: npm run dev
